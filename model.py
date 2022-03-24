@@ -1,6 +1,6 @@
 # importing of neccessary Libraries
 import pandas as pd
-import seaborn as sns
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import LabelEncoder
 
