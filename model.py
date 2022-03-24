@@ -5,7 +5,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import LabelEncoder
 
 
-sns.set_style('darkgrid')
+
 
 # loading data into pandas
 df = pd.read_csv('Iris.csv', index_col='Id')
