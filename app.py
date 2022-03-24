@@ -32,7 +32,7 @@ def main():
     st.markdown("# **VISUALIZATION OF SELECTED PLOT**")
     if select_visual == "partial dependence plots":
         fig = plt.figure(figsize=(5,5))
-        shap.plots.partial_dependence(feature, model_dt, selected_observation, ice=False, model_expected_value=True,
+        shap.plots.partial_dependence(feature, model_dt.predict, selected_observation, ice=False, model_expected_value=True,
                                       feature_expected_value=True)
         st.pyplot(fig=fig)
 
