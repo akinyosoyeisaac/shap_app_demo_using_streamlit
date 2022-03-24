@@ -1,7 +1,7 @@
 # importing of neccessary Libraries
 import pandas as pd
 
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 
 
@@ -22,6 +22,6 @@ target_encoder.fit(y)
 y = target_encoder.transform(y)
 
 # Building a Decision-Tree model
-model_dt = DecisionTreeClassifier()
+model_dt = LogisticRegression()
 
 
