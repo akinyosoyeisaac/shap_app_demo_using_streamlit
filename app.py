@@ -15,7 +15,7 @@ def main():
                                   step=10, key='start')
     end_index = st.number_input(label="Enter a value for the first index", min_value=1, max_value=150, value=150,
                                   step=10, key='end')
-    selected_observation = X[start_index:end_index]
+    selected_observation = X.iloc[start_index:end_index,:]
 
     # targeted Features
     feature = st.selectbox(label="select feature of interest", options=df.columns)
