@@ -50,7 +50,7 @@ def main():
         
     if select_visual == "force_plot":
         fig = plt.figure()
-        shap.plots.force(shap_values[0])
+        shap.plots.force(shap_values[0], matplotlib=True)
         st.pyplot(fig)
 
 if __name__ == "__main__":
