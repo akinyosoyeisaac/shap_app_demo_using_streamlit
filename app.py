@@ -21,7 +21,7 @@ def main():
     feature = st.selectbox(label="select feature of interest", options=df.columns)
 
     # selecting the type of visualization
-    list_visuals = ["partial dependence plots", "beeswarm"]
+    list_visuals = ["partial dependence plots", "beeswarm", "scattered_plot"]
     select_visual = st.selectbox(label="Choose the your preferred model explainer from the list below", options=list_visuals, index=0)
 
     # Loading the shap value
@@ -36,11 +36,17 @@ def main():
                                       feature_expected_value=True, ax=ax)
         st.pyplot(fig)
 
-    if select_visual == "beeswarm":
+    if select_visual == "scattered_plot":
         fig, ax = plt.subplots()
 #         shap.plots.beeswarm(shap_values[:, feature], max_display=4)
         shap.plots.scatter(shap_values[:,feature], color=shap_values, ax=ax)
         st.pyplot(fig)
+        
+        if select_visual == "beeswarm":
+        fig, ax = plt.subplots()
+        shap.plots.beeswarm(shap_values[:, [feature, 'petallengthcm']], max_display=4, ax=ax)
+        st.pyplot(fig)
+       
 
 if __name__ == "__main__":
     model_dt.fit(X, y)
