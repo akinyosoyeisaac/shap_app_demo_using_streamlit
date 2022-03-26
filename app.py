@@ -31,10 +31,10 @@ def main():
     # displaying our visuals
     st.markdown("# **VISUALIZATION OF SELECTED PLOT**")
     if select_visual == "partial dependence plots":
-        fig = plt.figure(figsize=(5,5))
+        fig, ax = plt.subplots()
         shap.plots.partial_dependence(feature, model_dt.predict, selected_observation, ice=False, model_expected_value=True,
-                                      feature_expected_value=True)
-        st.pyplot(fig=fig)
+                                      feature_expected_value=True, ax=ax)
+        st.pyplot(fig)
 
     if select_visual == "beeswarm":
         fig, ax = plt.subplots()
