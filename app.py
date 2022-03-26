@@ -21,7 +21,7 @@ def main():
     feature = st.selectbox(label="select feature of interest", options=df.columns)
 
     # selecting the type of visualization
-    list_visuals = ["partial dependence plots", "beeswarm", "scattered_plot"]
+    list_visuals = ["partial dependence plots", "beeswarm", "scattered_plot", "force_plot"]
     select_visual = st.selectbox(label="Choose the your preferred model explainer from the list below", options=list_visuals, index=0)
 
     # Loading the shap value
@@ -47,7 +47,11 @@ def main():
         fig = plt.figure()
         shap.plots.beeswarm(shap_values[:, [feature]], max_display=4)
         st.pyplot(fig)
-       
+        
+    if select_visual == "force_plot":
+        fig = plt.figure()
+        shap.plots.force(base_value = explainer.expected_value, shap_values= shap_values[:, [feature]], feature_values=X[:, [feature]], matplotlib=True)
+        st.pyplot(fig)
 
 if __name__ == "__main__":
     model_dt.fit(X, y)
