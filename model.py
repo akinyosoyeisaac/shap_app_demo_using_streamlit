@@ -8,7 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 # loading data into pandas
-df = pd.read_csv('data.csv', index_col='Id')
+df = pd.read_csv('data.csv')
 
 # converting the column label to lower case string
 #df.columns = df.columns.str.lower()
