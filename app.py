@@ -43,8 +43,8 @@ def main():
         st.pyplot(fig)
         
     if select_visual == "beeswarm":
-        fig, ax = plt.subplots()
-        shap.plots.beeswarm(shap_values[:, [feature, 'petallengthcm']], max_display=4, ax=ax)
+        fig = plt.figure()
+        shap.plots.beeswarm(shap_values[:, [feature, 'petallengthcm']], max_display=4)
         st.pyplot(fig)
        
 
