@@ -6,7 +6,7 @@ from model import *
 
 def main():
     st.title("MODEL EXPLAINATION")
-    st.subheader("the essence of the work is try has much as possible to explain our decision try model")
+    st.subheader("the essence of the work is to try has much as possible to explain our logistic model")
 
     # subseting our dataset
     st.header("Slicing the Dataset")
@@ -38,7 +38,7 @@ def main():
 
     if select_visual == "beeswarm":
         fig = plt.figure(figsize=(5,5))
-        shap.plots.beeswarm(shap_values.loc[:, feature], max_display=4)
+        shap.plots.beeswarm(shap_values[:, feature], max_display=4)
         st.pyplot(fig=fig)
 
 if __name__ == "__main__":
