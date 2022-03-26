@@ -18,7 +18,7 @@ def main():
     selected_observation = X.iloc[start_index:end_index,:]
 
     # targeted Features
-    feature = st.selectbox(label="select feature of interest", options=df.columns)
+    feature = st.selectbox(label="select feature of interest", options=X.columns)
 
     # selecting the type of visualization
     list_visuals = ["partial dependence plots", "beeswarm", "scattered_plot", "force_plot"]
