@@ -11,7 +11,7 @@ def main():
     # subseting our dataset
     st.header("Slicing the Dataset")
     st.subheader("Selecting random observation from the dataset")
-    start_index = st.number_input(label="Enter a value for the start index", min_value=1, max_value=150, value=1,
+    start_index = st.number_input(label="Enter a value for the start index", min_value=1, max_value=150, value=0,
                                   step=10, key='start')
     end_index = st.number_input(label="Enter a value for the end index", min_value=1, max_value=150, value=150,
                                   step=10, key='end')
