@@ -8,13 +8,15 @@ from sklearn.preprocessing import LabelEncoder
 
 
 # loading data into pandas
-df = pd.read_csv('Iris.csv', index_col='Id')
+df = pd.read_csv('data.csv', index_col='Id')
 
 # converting the column label to lower case string
-df.columns = df.columns.str.lower()
+#df.columns = df.columns.str.lower()
+
+df.drop(columns=["id", "Unnamed: 32"], inplace=True)
 
 # Creating inputs and labels for our model
-X, y = df.drop(columns='species'), df['species']
+X, y = df.drop(columns='diagnosis'), df['diagnosis']
 
 # Encoder
 target_encoder = LabelEncoder()
