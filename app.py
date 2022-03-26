@@ -11,9 +11,9 @@ def main():
     # subseting our dataset
     st.header("Slicing the Dataset")
     st.subheader("Selecting random observation from the dataset")
-    start_index = st.number_input(label="Enter a value for the first index", min_value=1, max_value=150, value=1,
+    start_index = st.number_input(label="Enter a value for the start index", min_value=1, max_value=150, value=1,
                                   step=10, key='start')
-    end_index = st.number_input(label="Enter a value for the first index", min_value=1, max_value=150, value=150,
+    end_index = st.number_input(label="Enter a value for the end index", min_value=1, max_value=150, value=150,
                                   step=10, key='end')
     selected_observation = X.iloc[start_index:end_index,:]
 
@@ -38,7 +38,7 @@ def main():
 
     if select_visual == "beeswarm":
         fig = plt.figure(figsize=(5,5))
-        shap.plots.beeswarm(shap_values, max_display=4)
+        shap.plots.beeswarm(shap_values.loc[:, feature], max_display=4)
         st.pyplot(fig=fig)
 
 if __name__ == "__main__":
