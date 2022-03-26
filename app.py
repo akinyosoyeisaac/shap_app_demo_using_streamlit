@@ -42,7 +42,7 @@ def main():
         shap.plots.scatter(shap_values[:,feature], color=shap_values, ax=ax)
         st.pyplot(fig)
         
-        if select_visual == "beeswarm":
+    if select_visual == "beeswarm":
         fig, ax = plt.subplots()
         shap.plots.beeswarm(shap_values[:, [feature, 'petallengthcm']], max_display=4, ax=ax)
         st.pyplot(fig)
