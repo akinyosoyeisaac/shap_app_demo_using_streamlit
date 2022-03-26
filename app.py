@@ -27,6 +27,9 @@ def main():
     # Loading the shap value
     explainer = shap.Explainer(model_dt.predict, selected_observation)
     shap_values = explainer(X)
+    
+    instance = st.number_input(label="instance number", min_value=0, max_value=150, value=0,
+                                  step=1, key='end')
 
     # displaying our visuals
     st.markdown("# **VISUALIZATION OF SELECTED PLOT**")
@@ -47,11 +50,11 @@ def main():
         fig = plt.figure()
         shap.plots.beeswarm(shap_values[:, [feature]], max_display=4)
         st.pyplot(fig)
-        
+   
     if select_visual == "force_plot":
         #fig = plt.figure()
         st.set_option('deprecation.showPyplotGlobalUse', False)
-        fig = shap.plots.force(shap_values[0], matplotlib=True)
+        fig = shap.plots.force(shap_values[instance], matplotlib=True)
         st.pyplot(fig)
 
 if __name__ == "__main__":
