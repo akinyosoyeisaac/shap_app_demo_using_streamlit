@@ -50,6 +50,7 @@ def main():
         
     if select_visual == "force_plot":
         #fig = plt.figure()
+        st.set_option('deprecation.showPyplotGlobalUse', False)
         fig = shap.plots.force(shap_values[0], matplotlib=True)
         st.pyplot(fig)
 
