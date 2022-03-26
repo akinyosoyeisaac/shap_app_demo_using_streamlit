@@ -38,7 +38,8 @@ def main():
 
     if select_visual == "beeswarm":
         fig = plt.figure(figsize=(5,5))
-        shap.plots.beeswarm(shap_values[:, feature], max_display=4)
+#         shap.plots.beeswarm(shap_values[:, feature], max_display=4)
+        shap.plots.scatter(shap_values[:,feature], color=shap_values)
         st.pyplot(fig=fig)
 
 if __name__ == "__main__":
