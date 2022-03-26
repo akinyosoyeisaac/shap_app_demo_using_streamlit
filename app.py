@@ -31,9 +31,10 @@ def main():
     # displaying our visuals
     st.markdown("# **VISUALIZATION OF SELECTED PLOT**")
     if select_visual == "partial dependence plots":
+        sample_ind = 20
         fig, ax = plt.subplots()
         shap.plots.partial_dependence(feature, model_dt.predict, selected_observation, ice=False, model_expected_value=True,
-                                      feature_expected_value=True, ax=ax)
+                                      feature_expected_value=True, shap_values=shap_values[sample_ind:sample_ind+1,:], ax=ax)
         st.pyplot(fig)
 
     if select_visual == "scattered_plot":
