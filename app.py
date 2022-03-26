@@ -37,10 +37,10 @@ def main():
         st.pyplot(fig=fig)
 
     if select_visual == "beeswarm":
-        fig = plt.figure(figsize=(5,5))
+        fig, ax = plt.subplots()
 #         shap.plots.beeswarm(shap_values[:, feature], max_display=4)
-        shap.plots.scatter(shap_values[:,feature], color=shap_values)
-        st.pyplot(fig=fig)
+        shap.plots.scatter(shap_values[:,feature], color=shap_values, ax=ax)
+        st.pyplot(fig)
 
 if __name__ == "__main__":
     model_dt.fit(X, y)
