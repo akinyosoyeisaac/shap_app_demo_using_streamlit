@@ -11,9 +11,9 @@ def main():
     # subseting our dataset
     st.header("Slicing the Dataset")
     st.subheader("Selecting random observation from the dataset")
-    start_index = st.number_input(label="Enter a value for the start index", min_value=0, max_value=150, value=0,
+    start_index = st.number_input(label="Enter a value for the start index", min_value=0, max_value=569, value=0,
                                   step=10, key='start')
-    end_index = st.number_input(label="Enter a value for the end index", min_value=0, max_value=150, value=150,
+    end_index = st.number_input(label="Enter a value for the end index", min_value=0, max_value=569, value=150,
                                   step=10, key='end')
     selected_observation = X.iloc[start_index:end_index,:]
 
@@ -28,7 +28,7 @@ def main():
     explainer = shap.Explainer(model_dt.predict, selected_observation)
     shap_values = explainer(X)
     
-    instance = st.number_input(label="instance number", min_value=0, max_value=150, value=0,
+    instance = st.number_input(label="instance number", min_value=0, max_value=569, value=0,
                                   step=1, key='end')
 
     # displaying our visuals
