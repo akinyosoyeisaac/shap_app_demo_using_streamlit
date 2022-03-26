@@ -19,6 +19,10 @@ def main():
 
     # targeted Features
     feature = st.selectbox(label="select feature of interest", options=X.columns)
+    
+    # Selecting instance number for force plot
+    instance = st.number_input(label="instance number", min_value=0, max_value=569, value=0,
+                                  step=1, key='end')
 
     # selecting the type of visualization
     list_visuals = ["partial dependence plots", "beeswarm", "scattered_plot", "force_plot"]
@@ -28,8 +32,7 @@ def main():
     explainer = shap.Explainer(model_dt.predict, selected_observation)
     shap_values = explainer(X)
     
-    instance = st.number_input(label="instance number", min_value=0, max_value=569, value=0,
-                                  step=1, key='end')
+    
 
     # displaying our visuals
     st.markdown("# **VISUALIZATION OF SELECTED PLOT**")
